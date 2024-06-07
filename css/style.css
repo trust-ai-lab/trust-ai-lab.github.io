@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #e1e7f7;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+header nav ul li a.active, header nav ul li a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+main {
+    padding: 20px;
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.carousel-image img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-text {
+    position: absolute;
+    color: white;
+    text-align: center;
+}
+
+.carousel-text h1 {
+    font-size: 2.5em;
+}
+
+.carousel-text p {
+    font-size: 1.2em;
+}
+
+.carousel-nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carousel-nav .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.carousel-nav .dot.active {
+    background-color: #007bff;
+}
+
+.about, .openings, .articles, .news {
+    margin-bottom: 40px;
+}
+
+.about h2, .openings h2, .articles h2, .news h2 {
+    font-size: 2em;
+    color: #007bff;
+}
+
+.about h3 {
+    font-size: 1.5em;
+    color: #666;
+}
+
+.about p {
+    font-size: 1em;
+    color: #333;
+}
+
+.openings-grid, .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.opening, .article {
+    background-color: #e1e7f7;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1em;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-column p {
+    margin: 5px 0;
+}
