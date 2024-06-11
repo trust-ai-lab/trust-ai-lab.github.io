@@ -1,3 +1,5 @@
+/* Main/Home Page Styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -150,6 +152,9 @@ footer {
     margin: 5px 0;
 }
 
+/* Research Page Styles */
+
+
 .research {
     display: flex;
     flex-wrap: wrap;
@@ -175,4 +180,72 @@ footer {
     width: 100%;
     height: auto;
     border-radius: 10px;
+}
+
+
+/* People Page Styles */
+.faculty, .students, .past-students {
+    margin: 40px 0;
+}
+
+.faculty h2, .students h2, .past-students h2 {
+    font-size: 2em;
+    color: #007bff;
+}
+
+.faculty-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.faculty-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.faculty-info {
+    text-align: center;
+}
+
+.faculty-buttons {
+    margin-top: 10px;
+}
+
+.faculty-buttons .button {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.student-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.student-card {
+    text-align: center;
+}
+
+.student-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.past-students ul {
+    list-style: none;
+    padding: 0;
+}
+
+.past-students ul li {
+    margin: 10px 0;
 }
