@@ -149,3 +149,30 @@ footer {
 .footer-column p {
     margin: 5px 0;
 }
+
+.research {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.research-content, .research-image {
+    flex: 1;
+    padding: 10px;
+    min-width: 300px;
+}
+
+.research-content p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.research-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
