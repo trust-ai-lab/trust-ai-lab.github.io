@@ -2,7 +2,7 @@
 /* ------------------------------- Main/Home Page Styles ----------------------------------------------------- */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -32,6 +32,7 @@ header nav ul {
 
 header nav ul li {
     margin: 0 10px;
+    font-weight: bold;
 }
 
 header nav ul li a {
