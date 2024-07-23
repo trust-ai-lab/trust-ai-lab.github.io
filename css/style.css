@@ -162,6 +162,7 @@ main {
     border-radius: 10px;
     text-align: center;
     font-size: 1em;
+    border-width: 100px;
 }
 
 footer {
@@ -184,6 +185,117 @@ footer {
 .footer-column p {
     margin: 5px 0;
 }
+
+.articles {
+    margin-bottom: 40px;
+}
+
+.articles h2 {
+    font-size: 2em;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.article {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article p {
+    padding: 15px;
+    margin: 0;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.news {
+    margin-bottom: 40px;
+}
+
+.news-container {
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
+}
+
+.news-title {
+    flex-shrink: 0;
+    width: 200px; /* Adjust this value as needed */
+    display: flex;
+    align-items: center;
+}
+
+.news h2 {
+    font-size: 2em;
+    color: #007bff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.news-content {
+    flex-grow: 1;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.news ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.news li {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e1e4e8;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.news li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.news-date {
+    font-weight: bold;
+    color: #007bff;
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .news-container {
+        flex-direction: column;
+    }
+
+    .news-title {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .news h2 {
+        text-align: center;
+    }
+}
+
+
 /* ---------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------- Research Page Styles ----------------------------------------------------- */
 
