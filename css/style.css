@@ -125,7 +125,7 @@ main {
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
-}
+} 
 
 .carousel-nav .dot.active {
     background-color: #007bff;
