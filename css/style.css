@@ -512,7 +512,6 @@ footer {
 /* ---------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------- Teaching Page Styles ----------------------------------------------------- */
 
-
 .teaching-header {
     text-align: center;
     margin: 40px 0;
@@ -581,10 +580,10 @@ footer {
 
 .timeline-event .timeline-date {
     position: absolute;
-    top: -20px;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 1.2em;
     color: #007bff;
-    transform: translateX(-50%);
 }
 
 .timeline-event .timeline-content {
@@ -592,7 +591,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    width: 45%;
+    width: 25%;
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 10px;
@@ -600,11 +599,21 @@ footer {
 }
 
 .timeline-event:nth-child(even) .timeline-content {
-    margin-left: 55%;
+    margin-left: 35%;
+    justify-content: flex-end;
+}
+
+.timeline-event:nth-child(even) .timeline-date {
+    left: 575px;
 }
 
 .timeline-event:nth-child(odd) .timeline-content {
-    margin-right: 55%;
+    margin-right: 35%;
+    justify-content: flex-start;
+}
+
+.timeline-event:nth-child(odd) .timeline-date {
+    right: 575px;
 }
 
 .timeline-event img {
