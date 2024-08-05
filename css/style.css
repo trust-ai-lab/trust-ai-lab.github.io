@@ -78,6 +78,8 @@ main {
     transition: transform 0.5s ease-in-out;
     max-width: 1088px; 
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .carousel-slide {
@@ -131,11 +133,11 @@ main {
     background-color: #007bff;
 }
 
-.about, .openings, .selected-papers, .news {
+.about, .openings, .articles, .news {
     margin-bottom: 40px;
 }
 
-.about h2, .openings h2, .selected-papers h2, .news h2 {
+.about h2, .openings h2, .articles h2, .news h2 {
     font-size: 2em;
     color: #007bff;
 }
@@ -150,7 +152,7 @@ main {
     color: #333;
 }
 
-.openings-grid, .selected-papers-grid {
+.openings-grid, .articles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
@@ -186,17 +188,17 @@ footer {
     margin: 5px 0;
 }
 
-.selected-papers {
+.articles {
     margin-bottom: 40px;
 }
 
-.selected-papers h2 {
+.articles h2 {
     font-size: 2em;
     color: #007bff;
     margin-bottom: 20px;
 }
 
-.selected-papers-grid {
+.articles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;

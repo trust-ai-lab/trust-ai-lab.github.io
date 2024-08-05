@@ -1,4 +1,4 @@
-let currentIndex = 0;
+let currentIndex = 1;
 const slides = document.querySelectorAll('.carousel-slide');
 const dots = document.querySelectorAll('.dot');
 
@@ -26,7 +26,6 @@ dots.forEach((dot, index) => {
     });
 });
 
-setInterval(nextSlide, 5000); // Change slide every 5 seconds
+setInterval(nextSlide, 4000);
 
-// Initialize the carousel
 showSlide(currentIndex);
