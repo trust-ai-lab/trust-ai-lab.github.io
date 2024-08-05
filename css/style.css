@@ -131,11 +131,11 @@ main {
     background-color: #007bff;
 }
 
-.about, .openings, .articles, .news {
+.about, .openings, .selected-papers, .news {
     margin-bottom: 40px;
 }
 
-.about h2, .openings h2, .articles h2, .news h2 {
+.about h2, .openings h2, .selected-papers h2, .news h2 {
     font-size: 2em;
     color: #007bff;
 }
@@ -150,7 +150,7 @@ main {
     color: #333;
 }
 
-.openings-grid, .articles-grid {
+.openings-grid, .selected-papers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
@@ -186,17 +186,17 @@ footer {
     margin: 5px 0;
 }
 
-.articles {
+.selected-papers {
     margin-bottom: 40px;
 }
 
-.articles h2 {
+.selected-papers h2 {
     font-size: 2em;
     color: #007bff;
     margin-bottom: 20px;
 }
 
-.articles-grid {
+.selected-papers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
