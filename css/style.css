@@ -165,6 +165,83 @@ main {
     text-align: center;
     font-size: 1em;
     border-width: 100px;
+    width: 200px;
+}
+
+.opening {
+    background-color: #e1e7f7;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1em;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+}
+
+
+.opening:hover {
+    transform: scale(2);
+    z-index: 1000;
+    background-color: rgba(244, 244, 247, 1);
+    border-radius: 10px 10px 0 0;
+}
+
+
+
+.opening-title {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.opening-content {
+    display: none;
+    text-align: left;
+    font-size: 0.8em;
+    padding-top: 10px;
+}
+
+.opening:hover .opening-content {
+    display: block;
+}
+
+.opening-content {
+    display: none;
+    text-align: left;
+    font-size: 0.8em;
+    padding: 20px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(225, 231, 247, 1);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+.opening::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #007bff;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.opening:hover::after {
+    opacity: 0;
+    visibility: visible;
+    border-radius: 10px 10px 0 0;
 }
 
 footer {
@@ -190,27 +267,51 @@ footer {
 
 .selected-papers {
     margin-bottom: 40px;
+    overflow: hidden;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .selected-papers h2 {
     font-size: 2em;
     color: #007bff;
     margin-bottom: 20px;
+    margin-left: 330px;
 }
 
-.selected-papers-grid {
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    height: 300px;
+}
+
+.sp-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+/* .selected-papers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-}
+} */
 
 .selected-paper {
+    flex: 0 0 300px;
+    margin: 20px 10px;
     background-color: #f8f9fa;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 200px;
 }
-
 .selected-paper img {
     width: 100%;
     height: 200px;
@@ -218,10 +319,16 @@ footer {
 }
 
 .selected-paper p {
-    padding: 15px;
+    padding: 10px;
     margin: 0;
     font-size: 0.9em;
     color: #333;
+    text-align: center;
+}
+
+.selected-paper:hover {
+    transform: scale(1.1);
+    z-index: 1;
 }
 
 .news {
