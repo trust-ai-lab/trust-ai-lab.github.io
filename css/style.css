@@ -532,7 +532,7 @@ footer {
 .publication-year h3 {
     font-size: 1.5em;
     color: #007bff;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .publication-year ul {
@@ -544,16 +544,37 @@ footer {
     margin-bottom: 20px;
     font-size: 1em;
     color: #333;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
 }
 
-.publication-year ul li strong {
+.pub-index {
+    font-weight: bold;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.pub-title {
     display: block;
+    font-weight: bold;
     margin-bottom: 5px;
+}
+
+.pub-authors {
+    display: block;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.pub-venue {
+    display: block;
+    margin-bottom: 10px;
 }
 
 .pdf-button {
     display: inline-block;
-    margin-top: 5px;
     padding: 5px 10px;
     background-color: #007bff;
     color: white;
@@ -562,7 +583,9 @@ footer {
     font-size: 0.9em;
 }
 
-
+.pdf-button:hover {
+    background-color: #0056b3;
+}
 /* ---------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------- CV Page Styles ----------------------------------------------------- */
 
