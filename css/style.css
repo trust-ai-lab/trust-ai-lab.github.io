@@ -448,7 +448,9 @@ footer {
     font-size: 2em;
     color: #007bff;
     text-align: center;
+    
 }
+
 
 .faculty-details {
     display: flex;
@@ -457,20 +459,37 @@ footer {
     gap: 20px;
 }
 
+.faculty-info .name {
+    font-weight: bold;
+    margin: 5px;
+    font-size: larger;
+}
+
+.faculty-info .title,
+.faculty-info .department {
+    color: #666;
+    margin: 5px;
+    font-size: large;
+}
+
 .faculty-photo img {
     width: 160px;
     height: 160px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+    object-fit: cover;
+    border: 2px solid black;
 }
 
 .faculty-info {
-    text-align: center;
+    text-align: left;
     
 }
 
 .faculty-buttons {
     margin-top: 10px;
+
 }
 
 .faculty-buttons .button {
@@ -481,6 +500,7 @@ footer {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 .student-grid {
@@ -492,14 +512,16 @@ footer {
 
 .student-card {
     text-align: left;
-    
 }
 
 .student-card img {
     width: 120px;
     height: 120px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+    object-fit: cover;
+    border: 2px solid black;
 }
 
 .past-students ul {
