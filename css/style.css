@@ -613,55 +613,105 @@ footer {
 
 .cv-header {
     text-align: center;
-    margin: 40px 0;
+    margin-bottom: 40px;
 }
 
 .cv-header h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     color: #007bff;
+    margin-bottom: 10px;
 }
 
 .cv-header p {
+    margin: 10px 0;
     font-size: 1.2em;
-    margin: 5px 0;
+    color: #333;
+    font-weight: bold;
 }
 
-.cv-header .pdf-button {
+.cv-section {
+    margin-bottom: 30px;
+}
+
+.cv-section h2, .education h2,
+.experience h2, .publications h2, .teaching h2, .awards h2, .professional-services h2 {
+    font-size: 1.8em;
+    color: #007bff;
+    border-bottom: 2.5px solid #000;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cv-section p {
+    margin-bottom: 10px;
+}
+
+.cv-section strong {
+    font-weight: bold;
+}
+
+.cv-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.cv-year {
+    flex: 0 0 120px;
+    font-weight: bold;
+}
+
+.cv-content {
+    flex: 1;
+    padding-left: 20px;
+    border-left: 1px solid #000;
+}
+
+.research-interests ul,
+.education ul,
+.experience ul,
+.publications ol,
+.teaching ul,
+.awards ul,
+.professional-services ul {
+    padding-left: 20px;
     margin-top: 10px;
 }
 
-.research-interests, .education, .experience, .honors-awards, .research-grants, .publications {
-    margin: 40px 0;
+.research-interests li,
+.education li,
+.experience li,
+.publications li,
+.teaching li,
+.awards li,
+.professional-services li {
+    margin-bottom: 10px;
 }
 
-.research-interests h2, .education h2, .experience h2, .honors-awards h2, .research-grants h2, .publications h2 {
-    font-size: 2em;
-    color: #007bff;
-    text-align: center;
-    margin-bottom: 20px;
+
+.container h3 {
+    font-size: 1.4em;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-.research-interests p {
-    font-size: 1em;
-    color: #333;
-    margin: 10px 0;
-}
 
-.education ul, .experience ul {
-    list-style: none;
-    padding: 0;
-}
+@media (max-width: 600px) {
+    .cv-item {
+        flex-direction: column;
+    }
 
-.education ul li, .experience ul li {
-    margin-bottom: 20px;
-    font-size: 1em;
-    color: #333;
-    line-height: 1.5;
-}
+    .cv-year {
+        margin-bottom: 5px;
+    }
 
-.education ul li strong, .experience ul li strong {
-    display: block;
-    margin-bottom: 5px;
+    .cv-content {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid #000;
+        padding-top: 5px;
+    }
 }
 
 /* ---------------------------------------------------------------------------------------------------------------*/
