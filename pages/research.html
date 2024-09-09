@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Website - Research</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../icons/favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="logo">SPRAI: Security and Privacy Research of AI Systems Lab</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#" class="active">Research</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="publications.html">Publications</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <section class="research">
+                <div class="research-content">
+                    <p>Federated learning is vulnerable to both data poisoning and model poisoning attacks (MPAs).
+                        MPAs are increasingly stealthy by generating model weights similar to benign models. 
+                        We observe that malicious models differ from benign models in how they represent input data. 
+                        We utilize the data representation in the second last layer (PLR) to detect malicious clients and achieve better performance than other baselines.
+                        </p>
+                </div>
+                <div class="research-image">
+                    <img src="../images/research/research-image-mpa.png" alt="Research Image 1">
+                </div>
+            </section>
+            <section class="research">
+                <div class="research-image">
+                    <img src="../images/research/research-image-ids.png" alt="Research Image 2">
+                </div>
+                <div class="research-content">
+                    <p>Adversarial attacks found in computer vision apply to network intrusion detection systems (IDS). 
+                        We analyze multiple AE methods and discover they share one common characteristic: AE is close to the manifold of the true class rather than the target class because of the small perturbation size. 
+                        Most AEs maintain a small perturbation size to maintain the original property and to hide the maliciousness. 
+                        We design a detection rule as any input is an AE if there is an INCONSISTENCY between manifold evaluation and model classification.
+                    </p>
+                </div>
+            </section>
+            <section class="research">
+                <div class="research-content">
+                    <p>Federated learning is a promising framework for healthcare, etc. 
+                        FL provides privacy protection by its design as data remains on a local device. 
+                        However, the model parameter still leaks privacy. In order to protect local data privacy, we applied differential privacy by carefully adding random noise to model parameters. 
+                        To minimize model accuracy degradation, we propose an adaptive clipping method to adaptively add noise to gradients according to the change of gradient scale. 
+                        Our methods have been proven to improve model accuracy without degrading privacy protection.
+                    </p>
+                </div>
+                <div class="research-image">
+                    <img src="../images/research/research-image-dp.png" alt="Research Image 3">
+                </div>
+            </section>
+            <section class="research">
+                <div class="research-image">
+                    <img src="../images/research/research-image-tp.png" alt="Research Image 4">
+                </div>
+                <div class="research-content">
+                    <p>Machine learning (ML) has shown advances in network intrusion detection systems because of its capability to detect zero-day attacks. However, ML-based intrusion detection usually suffers from high false positives compared with the traditional signature-based network intrusion detection system. To reduce both false positives and false negatives, we developed a contrastive learning-based intrusion detection system. </p>
+                     <p>The proposed detection mechanism extracted the key common properties of benign variations to learn a more accurate model for the benign class. To apply our detection model to IoT systems and alleviate privacy concerns, we incorporated FEderated learning framework into the Contrastive-learning-based detection method and proposed a system, FeCo. FeCo significantly reduced false positives and improved intrusion detection accuracy compared to previous works. Through extensive experiments on the NSL-KDD and BaIoTdatasets, we demonstrated that FeCoachieves a large accuracy improvement (as high as 8%) compared to the state-of-the-art detection methods. 
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <p>SPRAI: Security and Privacy Research of AI Systems Lab</p>
+            </div>
+            <div class="footer-column">
+                <p>Research</p>
+                <p>Publications</p>
+                <p>People</p>
+            </div>
+            <div class="footer-column">
+                <p>Courses</p>
+                <p>Resources</p>
+                <p>News</p>
+            </div>
+            <div class="footer-column">
+                <p>Contact</p>
+                <p>About</p>
+                <p>Join Us</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
