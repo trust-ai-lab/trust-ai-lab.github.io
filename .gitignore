@@ -1,0 +1,18 @@
+# History folder (VSCode/Cursor local history)
+.history/
+
+# macOS
+.DS_Store
+
+# VSCode/Cursor
+.vscode/
+
+# Node modules (if any)
+node_modules/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp 

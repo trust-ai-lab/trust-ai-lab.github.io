@@ -30,18 +30,27 @@ body {
 }
 
 header {
-    background-color: #e1e7f7;
-    color: #333;
+    background: linear-gradient(135deg, #3399ff 0%, #2d3a8c 100%);
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px; 
-    height: 60px;
+    padding: 0 40px; 
+    height: 80px;
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 header .logo {
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header nav ul {
@@ -49,23 +58,89 @@ header nav ul {
     display: flex;
     margin: 0;
     padding: 0;
+    gap: 8px;
 }
 
 header nav ul li {
-    margin: 0 10px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 header nav ul li a {
-    color: #333;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
-    padding: 10px 10px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+    letter-spacing: 0.01em;
 }
 
-header nav ul li a.active, header nav ul li a:hover {
-    background-color: #007bff;
+header nav ul li a:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
     color: white;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+header nav ul li a.active {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+header nav ul li a.active::before {
+    opacity: 0;
+}
+
+/* Mobile responsiveness for header */
+@media (max-width: 768px) {
+    header {
+        padding: 0 20px;
+        height: 70px;
+    }
+    
+    header .logo {
+        font-size: 1.3em;
+    }
+    
+    header nav ul {
+        gap: 4px;
+    }
+    
+    header nav ul li a {
+        padding: 10px 16px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    header .logo {
+        font-size: 1.2em;
+    }
+    
+    header nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    header nav ul li a {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
 }
 
 .container {
@@ -80,130 +155,332 @@ header nav ul li a.active, header nav ul li a:hover {
 }
 
 main {
-    padding: 20px;
+    padding: 0;
 }
 
-.carousel {
+/* Hero Carousel Styles */
+.hero-carousel {
     position: relative;
     width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 650px;
+    overflow: hidden;
+    background: #000;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
-.carousel-track-container {
+.carousel-slides {
     position: relative;
     width: 100%;
-    overflow: hidden;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    max-width: 1088px; 
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100%;
 }
 
 .carousel-slide {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    z-index: 1;
 }
 
-.carousel-slide img {
-    width: 1088px;
-    height: 596px;
-    border-radius: 15px; 
+.carousel-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
 }
 
-.carousel-text {
+.carousel-slide.prev {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 1;
+}
+
+.slide-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.1);
+    transition: transform 8s ease-out;
+}
+
+.carousel-slide.active .slide-background img {
+    transform: scale(1);
+}
+
+.slide-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
-    max-width: 650px;
-    background: rgba(20, 40, 70, 0.65);
-    backdrop-filter: blur(6px);
-    border-radius: 18px;
-    padding: 38px 36px 32px 36px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    width: 90%;
+    max-width: 1200px;
+    z-index: 3;
     text-align: center;
-    z-index: 2;
+}
+
+.slide-text {
+    color: white;
+    animation: slideUp 1s ease-out 0.3s both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-text h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.02em;
+}
+
+.slide-text p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    font-weight: 400;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slide-actions {
     display: flex;
-    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    border: 2px solid transparent;
+    display: inline-flex;
     align-items: center;
+    gap: 8px;
+    min-width: 160px;
+    justify-content: center;
 }
 
-.carousel-text::before {
-    content: '';
-    display: block;
+.btn-primary {
+    background: linear-gradient(135deg, #3399ff 0%, #2d3a8c 100%);
+    color: white;
+    box-shadow: 0 8px 25px rgba(51, 153, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(51, 153, 255, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Navigation Controls */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 0;
     width: 60px;
-    height: 5px;
-    background: linear-gradient(90deg, #007bff 0%, #1a237e 100%);
-    border-radius: 3px;
-    margin-bottom: 22px;
-}
-
-.carousel-text h1 {
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    font-size: 2.8em;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.01em;
-    text-shadow: 0 4px 16px rgba(0,0,0,0.32), 0 1.5px 0 #1a237e;
-    margin-bottom: 10px;
-    margin-top: 0;
-}
-
-.carousel-text p {
-    font-size: 1.25em;
-    color: #e3e9f7;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.20);
-    margin: 0;
-    margin-bottom: 0;
-}
-
-@media (max-width: 900px) {
-    .carousel-text {
-        padding: 18px 10px 18px 10px;
-        width: 92%;
-        max-width: 96vw;
-    }
-    .carousel-text h1 {
-        font-size: 2em;
-    }
-    .carousel-text p {
-        font-size: 1em;
-    }
-    .carousel-text::before {
-        width: 40px;
-        margin-bottom: 14px;
-    }
-}
-
-.carousel-nav {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.carousel-nav .dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    display: inline-block;
+    color: white;
     cursor: pointer;
-} 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    pointer-events: auto;
+}
 
-.carousel-nav .dot.active {
-    background-color: #007bff;
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.carousel-prev {
+    left: 2rem;
+}
+
+.carousel-next {
+    right: 2rem;
+}
+
+.carousel-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Dots Navigation */
+.carousel-indicators {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 4;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Progress Bar */
+.carousel-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 4;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3399ff, #2d3a8c);
+    width: 0;
+    transition: width 0.1s ease;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-carousel {
+        height: 50vh;
+        min-height: 350px;
+        max-height: 500px;
+    }
+    
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .carousel-prev {
+        left: 1rem;
+    }
+    
+    .carousel-next {
+        right: 1rem;
+    }
+    
+    .slide-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-btn {
+        display: none;
+    }
+    
+    .slide-text p {
+        margin-bottom: 2rem;
+    }
+}
+
+.container {
+    padding: 40px 20px;
 }
 
 .about, .openings, .selected-papers, .news {
@@ -357,7 +634,6 @@ footer {
 }
 
 
-.carousel-container,
 .sp-carousel-container {
     height: auto !important;
     min-height: unset !important;
@@ -422,30 +698,7 @@ footer {
     border: none;
 }
 
-.selected-paper .paper-link {
-    display: inline-block;
-    background: #007bff;
-    color: #fff;
-    padding: 10px 28px;
-    text-decoration: none;
-    border-radius: 999px;
-    font-size: 1em;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    box-shadow: 0 2px 12px rgba(0,123,255,0.11);
-    border: none;
-    margin-top: 14px;
-    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    cursor: pointer;
-    outline: none;
-}
-
-.selected-paper .paper-link:hover, .selected-paper .paper-link:focus {
-    background: #0056b3;
-    color: #fff;
-    box-shadow: 0 4px 16px rgba(0,123,255,0.18);
-    transform: translateY(-2px) scale(1.04);
-}
+/* Old button styles removed - using styles at end of file */
 
 .news {
     margin-bottom: 40px;
@@ -613,13 +866,29 @@ footer {
 
 .faculty-buttons .button {
     display: inline-block;
-    margin: 5px;
-    padding: 10px 20px;
-    background-color: #007bff;
+    margin: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #3399ff 0%, #2d3a8c 100%);
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid transparent;
+    box-shadow: 0 8px 25px rgba(51, 153, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.faculty-buttons .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(51, 153, 255, 0.4);
+}
+
+.faculty-buttons .button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 25px rgba(51, 153, 255, 0.3);
 }
 
 .student-grid {
@@ -682,50 +951,89 @@ footer {
 }
 
 .publication-year ul li {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     font-size: 1em;
     color: #333;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid rgba(51, 153, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.publication-year ul li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+    border-color: rgba(51, 153, 255, 0.2);
+}
+
+.publication-year ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #3399ff 0%, #2d3a8c 100%);
+    border-radius: 0 2px 2px 0;
 }
 
 .pub-index {
-    font-weight: bold;
-    color: #007bff;
-    margin-right: 10px;
+    display: none;
 }
 
 .pub-title {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 1.05em;
+    color: #2d3a8c;
+    margin-bottom: 8px;
+    line-height: 1.4;
 }
 
 .pub-authors {
     display: block;
     font-style: italic;
-    margin-bottom: 5px;
+    color: #5a6c7d;
+    margin-bottom: 6px;
+    font-size: 0.95em;
 }
 
 .pub-venue {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    color: #666;
+    font-size: 0.95em;
+    font-weight: 500;
 }
 
 .pdf-button {
     display: inline-block;
-    padding: 5px 10px;
-    background-color: #007bff;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #3399ff 0%, #2d3a8c 100%);
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 0.9em;
+    font-weight: 600;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 12px rgba(51, 153, 255, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .pdf-button:hover {
-    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(51, 153, 255, 0.35);
+}
+
+.pdf-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(51, 153, 255, 0.25);
 }
 /* ---------------------------------------------------------------------------------------------------------------*/
 /* ------------------------------- CV Page Styles ----------------------------------------------------- */
@@ -1059,7 +1367,7 @@ hr {
 }
 
 .selected-paper:hover {
-    transform: translateY(-5px); /* Lift card slightly on hover */
+    transform: translateY(-3px); /* Reduced lift to avoid conflict with button */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12), 0 1.5px 4px rgba(0,0,0,0.04);
 }
 
@@ -1086,20 +1394,31 @@ hr {
 
 .selected-paper .paper-link {
     display: inline-block;
-    background: #007bff;
+    background: linear-gradient(135deg, #3399ff 0%, #2d3a8c 100%);
     color: #fff;
-    padding: 8px 15px;
+    padding: 10px 18px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 0.9em;
+    font-weight: 600;
     text-align: center;
-    transition: background-color 0.3s ease;
-    align-self: flex-start; /* Align button to the start */
+    border: 2px solid transparent;
+    box-shadow: 0 4px 12px rgba(51, 153, 255, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    align-self: flex-start;
+    position: relative;
+    overflow: hidden;
 }
 
 .selected-paper .paper-link:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 6px 20px rgba(51, 153, 255, 0.35);
     color: white;
+    filter: brightness(1.05);
+}
+
+.selected-paper .paper-link:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(51, 153, 255, 0.25);
 }
 
 /* Remove default styling from .selected-papers-grid if it exists and conflicts */
@@ -1107,22 +1426,4 @@ hr {
     display: block; /* Override grid if it was previously set */
 }
 
-/* Adjustments to prevent conflict with main carousel */
-/* Ensure main carousel styles don't leak */
-.carousel .carousel-track {
-   /* Re-apply specific styles if needed, e.g., */
-   max-width: 1088px;
-   margin-left: auto;
-   margin-right: auto;
-   padding-left: 0; /* Reset padding if needed */
-}
-.carousel .carousel-slide {
-    /* Re-apply specific styles if needed */
-    min-width: 100%;
-    padding: 20px;
-}
-.carousel .carousel-slide img {
-     /* Re-apply specific styles if needed */
-     width: 1088px;
-     height: 596px;
-}
+

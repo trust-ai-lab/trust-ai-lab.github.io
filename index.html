@@ -21,36 +21,85 @@
         </nav>
     </header>
     <main>
-        <section class="carousel">
-            <div class="carousel-track-container">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="images/home/carousel-image-left.jpeg" alt="Carousel 2">
-                        <div class="carousel-text">
-                            <h1>Our Research</h1>
-                            <p>Advancing robust AI: Federated learning, intrusion detection, and privacy-preserving techniques</p>
+        <section class="hero-carousel">
+            <div class="carousel-wrapper">
+                <div class="carousel-container">
+                    <div class="carousel-slides">
+                        <div class="carousel-slide active" data-slide="0">
+                            <div class="slide-background">
+                                <img src="images/home/carousel-image-center.jpeg" alt="Welcome to SPRAI Lab">
+                            </div>
+                            <div class="slide-content">
+                                <div class="slide-text">
+                                    <h1>Welcome to SPRAI Lab</h1>
+                                    <p>Pioneering the future of AI security and privacy research</p>
+                                    <div class="slide-actions">
+                                        <a href="pages/research.html" class="btn-primary">Explore Research</a>
+                                        <a href="pages/people.html" class="btn-secondary">Meet Our Team</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="carousel-slide active">
-                        <img src="images/home/carousel-image-center.jpeg" alt="Carousel 1">
-                        <div class="carousel-text">
-                            <h1>Welcome to SPRAI Lab</h1>
-                            <p>Delve in to AI security research</p>
+                        
+                        <div class="carousel-slide" data-slide="1">
+                            <div class="slide-background">
+                                <img src="images/home/carousel-image-left.jpeg" alt="Our Research">
+                            </div>
+                            <div class="slide-content">
+                                <div class="slide-text">
+                                    <h1>Cutting-Edge Research</h1>
+                                    <p>Advancing robust AI through federated learning, intrusion detection, and privacy-preserving techniques</p>
+                                    <div class="slide-actions">
+                                        <a href="pages/publications.html" class="btn-primary">View Publications</a>
+                                        <a href="pages/research.html" class="btn-secondary">Research Areas</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/home/carousel-image-right.jpeg" alt="Carousel 3">
-                        <div class="carousel-text">
-                            <h1>Join Us</h1>
-                            <p>Find Openings below to join the lab</p>
+                        
+                        <div class="carousel-slide" data-slide="2">
+                            <div class="slide-background">
+                                <img src="images/home/carousel-image-right.jpeg" alt="Join Our Team">
+                            </div>
+                            <div class="slide-content">
+                                <div class="slide-text">
+                                    <h1>Join Our Mission</h1>
+                                    <p>Be part of groundbreaking research in trustworthy AI systems</p>
+                                    <div class="slide-actions">
+                                        <a href="#openings" class="btn-primary">View Openings</a>
+                                        <a href="pages/people.html" class="btn-secondary">Current Members</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-nav">
-                <span class="dot" data-slide="0"></span>
-                <span class="dot active" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
+                
+                <!-- Navigation Controls -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn carousel-prev" aria-label="Previous slide">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="carousel-btn carousel-next" aria-label="Next slide">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9,18 15,12 9,6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Dots Navigation -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="carousel-progress">
+                    <div class="progress-bar"></div>
+                </div>
             </div>
         </section>
         <div class="container">
@@ -80,7 +129,7 @@
                     <div class="sp-carousel-track">
                         <!-- Paper 1 -->
                         <div class="selected-paper">
-                            <span class="paper-badge">ACM CCS 2024</span>
+                            <span class="paper-badge">arXiv 2024</span>
                             <h4>BoBa: Boosting Backdoor Detection through Data Distribution Inference in Federated Learning</h4>
                             <a href="https://ning-wang1.github.io/files/boba.pdf" class="paper-link" target="_blank" rel="noopener">View Paper</a>
                         </div>
