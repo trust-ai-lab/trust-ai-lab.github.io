@@ -7,32 +7,26 @@ class HeroCarousel {
         this.indicators = Array.from(this.carousel.querySelectorAll('.indicator'));
         this.prevBtn = this.carousel.querySelector('.carousel-prev');
         this.nextBtn = this.carousel.querySelector('.carousel-next');
-        this.progressBar = this.carousel.querySelector('.progress-bar');
-        
+
         this.currentSlide = 0;
         this.isTransitioning = false;
         this.autoPlayInterval = null;
-        this.autoPlayDelay = 6000; // 6 seconds
-        this.progressInterval = null;
-        
-        // Touch/swipe support
+        this.autoPlayDelay = 6000;
+
         this.touchStartX = 0;
         this.touchEndX = 0;
         this.touchThreshold = 50;
-        
+
         this.init();
     }
-    
+
     init() {
         this.setupEventListeners();
         this.startAutoPlay();
-        this.updateProgressBar();
-        
-        // Set initial state
+
         this.updateSlides();
         this.updateIndicators();
-        
-        // Preload images
+
         this.preloadImages();
     }
     
@@ -169,10 +163,9 @@ class HeroCarousel {
     animateSlideText(slide) {
         const slideText = slide.querySelector('.slide-text');
         if (slideText) {
-            // Reset animation
             slideText.style.animation = 'none';
-            slideText.offsetHeight; // Force reflow
-            slideText.style.animation = 'slideUp 1s ease-out 0.3s both';
+            slideText.offsetHeight;
+            slideText.style.animation = 'slideFade 0.6s ease-out 0.1s both';
         }
     }
     
@@ -181,63 +174,26 @@ class HeroCarousel {
     }
     
     startAutoPlay() {
-        this.pauseAutoPlay(); // Clear any existing interval
-        
+        this.pauseAutoPlay();
+
         this.autoPlayInterval = setInterval(() => {
             this.nextSlide();
         }, this.autoPlayDelay);
-        
-        this.startProgressBar();
     }
-    
+
     pauseAutoPlay() {
         if (this.autoPlayInterval) {
             clearInterval(this.autoPlayInterval);
             this.autoPlayInterval = null;
         }
-        this.pauseProgressBar();
     }
-    
+
     restartAutoPlay() {
         this.startAutoPlay();
     }
-    
-    startProgressBar() {
-        this.pauseProgressBar();
-        
-        let progress = 0;
-        const increment = 100 / (this.autoPlayDelay / 50); // Update every 50ms
-        
-        this.progressInterval = setInterval(() => {
-            progress += increment;
-            if (this.progressBar) {
-                this.progressBar.style.width = `${Math.min(progress, 100)}%`;
-            }
-            
-            if (progress >= 100) {
-                this.pauseProgressBar();
-            }
-        }, 50);
-    }
-    
-    pauseProgressBar() {
-        if (this.progressInterval) {
-            clearInterval(this.progressInterval);
-            this.progressInterval = null;
-        }
-    }
-    
-    updateProgressBar() {
-        if (this.progressBar) {
-            this.progressBar.style.width = '0%';
-        }
-    }
-    
-    // Public method to destroy the carousel
+
     destroy() {
         this.pauseAutoPlay();
-        // Remove event listeners if needed
-        // This is useful for SPA applications
     }
 }
 
