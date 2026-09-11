@@ -811,6 +811,8 @@ footer {
     }
 
     .news-title {
+        position: static;
+        top: auto;
         width: 100%;
         justify-content: center;
         margin-bottom: 20px;
