@@ -1056,6 +1056,40 @@ hr.research-divider {
     letter-spacing: 0.02em;
 }
 
+.student-card .student-name {
+    min-height: 2.5em;
+    line-height: 1.25;
+}
+
+.student-website {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 32px;
+    margin-top: 8px;
+    color: var(--navy);
+    font-size: 0.82em;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--surface-border);
+    text-underline-offset: 5px;
+}
+
+.student-website span {
+    color: var(--accent);
+}
+
+.student-website:hover {
+    color: var(--navy-hover);
+    text-decoration-color: var(--accent);
+}
+
+.student-website:focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
 .student-card img {
     width: 130px;
     height: 130px;
@@ -1607,5 +1641,4 @@ hr {
 .selected-papers-grid {
     display: block; /* Override grid if it was previously set */
 }
-
 
